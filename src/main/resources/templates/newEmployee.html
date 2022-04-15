@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<title>Summative Assessment</title>
+	<link rel="stylesheet" 
+		href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+		crossorigin="anonymous">
+	
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1>Employee Registration - Sign Up</h1><br/>
+				<form th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+					<div class="form-group">
+						<label class="control-label" for="firstName">First Name</label>
+						<input id="firstName" th:field="*{firstName}" 
+							class="form-control" required autofocus="autofocus"/>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="lastName">Last Name</label>
+						<input id="lastName" th:field="*{lastName}" 
+							class="form-control" required/>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="email">E-mail</label>
+						<input id="email" type="email" th:field="*{email}" 
+							class="form-control" required/>
+					</div>
+							
+					<div class="form-group">
+						<label class="control-label" for="password">Password</label>
+						<input id="password" type="password" th:field="*{password}" 
+							class="form-control" required/>
+					</div>		
+						
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Register</button>
+						<span>Already registered? <a href="/" th:href="@{/}">Login</a></span>
+					</div>
+				</form>				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
